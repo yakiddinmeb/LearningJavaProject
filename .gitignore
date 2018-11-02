@@ -1,0 +1,5 @@
+.vscode/*
+learningjava/.settings/*
+learningjava/.classpath
+learningjava/target/*
+
