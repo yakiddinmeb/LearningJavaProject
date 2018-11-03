@@ -5,7 +5,7 @@ public class App {
      * 1. Hello World Write a method that prints out "Hello Word", and make it run.
      */
     static void problem1() {
-
+        // Fill in your answer here.
     }
 
     /*
@@ -13,6 +13,7 @@ public class App {
      * separate line.
      */
     static void problem2() {
+        // Fill in your answer here.
 
     }
 
@@ -24,6 +25,7 @@ public class App {
      * 22 23 24 25 26 27 28 29 30 ...
      */
     static void problem3() {
+        // Fill in your answer here.
 
     }
 
@@ -33,7 +35,7 @@ public class App {
     static int power(int x, int y) {
         int result = 1; // Think about why you want to have 1 and not 0 to start
 
-        // your code goes here
+        // Fill in your answer here.
 
         return result;
     }
@@ -61,6 +63,7 @@ public class App {
      * ...
      */
     static void problem5() {
+        // Fill in your answer here.
 
     }
 
@@ -79,7 +82,9 @@ public class App {
      *    ...
      */
     static void problem6() {
+
         for (int i = 0; i<100; i++) {
+            // Fill in your answer here.
             // Use if, else if, and else statements to decide what to print.
         }
     }
