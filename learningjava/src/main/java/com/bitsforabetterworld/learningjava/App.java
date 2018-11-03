@@ -1,9 +1,5 @@
 package com.bitsforabetterworld.learningjava;
 
-/*
-
-
-*/
 public class App {
     /*
      * 1. Hello World Write a method that prints out "Hello Word", and make it run.
@@ -159,6 +155,7 @@ public class App {
         }
 
     }
+
     public static void main(String[] args) {
         System.out.println("Problem 1");
         problem1();
