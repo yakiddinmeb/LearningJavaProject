@@ -1,3 +1,31 @@
+Try an online course
+
+If you would like a visual approach to learning Java, this video course on
+Udemy is free, and the instructor does a good job of showing how to program
+and explaining the concepts. Feel free to skip over any lessons that cover
+things you already know.
+
+https://www.udemy.com/share/10005iBEsYcl9VTHo=/
+
+Mostly, what we will need for robot programming will be in the lessons:
+	6. Using Variables
+	8. While loops
+	9. For loops
+	10. "If"
+	14. Arrays
+	17. Classes and Objects
+	18. Methods
+	19. Getters and Return Values
+	20. Method Parameters
+	21. Setters and "this"
+	22. Constructors
+	23. Static (and Final)
+	25. The toString method
+	26. Inheritance
+	27. Packages
+
+-------------------------------------
+
 Tasks for learning Java
 
 Some vocabulary:
@@ -435,6 +463,5 @@ static int[] findPrimesLessThanN(int n)
 	// Tenth: Return primes.
 	// 
 }
-
 
 
