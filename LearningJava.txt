@@ -464,4 +464,48 @@ static int[] findPrimesLessThanN(int n)
 	// 
 }
 
+9. Classes
 
+All code in Java is in the form of classes. All the examples you've worked on so far in the App.java file
+have been method in the class "App". Now we're going to create some new classes and use them to
+make the test cases in ClassesTest.java pass.
+
+For this set of exercises, we will create our classes in the file ClassesTest.java.
+
+A class is two things. First, it is a recipe for creating instances (which are also called "objects").
+When you want to make an instance of a class, you use the "new" operator to "instantiate" the class.
+For example, there is a class in Java called "Object". If I want to create an instance of this class,
+I can do it like this:
+
+Object obj;
+obj = new Object();
+
+The first line of code says that there is a variable named "obj" that can contain instances of the class "Object".
+The second line creates a new instance of Object and assigns it to the variable obj.
+
+Now, Object is an important class in Java, but it's not very interesting for our example. Let's create an
+example class called "ClickCounter". Instances of the class ClickCounter will have a method called "click" a
+method called "getCount". getCount will return the number of times click has been called on that particular
+instance of ClickCounter. Here is the code:
+
+class ClickCounter {
+	private int count = 0;
+
+	public void click() {
+		count++; // add 1 to count
+	}
+
+	public int getCount() {
+		return count;
+	}
+}
+
+
+Now we can create any number of instances of ClickCounter, and each one will keep track of how many
+times its click has been called. Look in the file ClickCounterTest.java (located in the
+directory learningjava/src/test/java/com/bitsforabetterworld/learningjava) at the test method 
+"TestEachClickCounterCountsIndependently" to see a demonstration of this.
+
+In addition to member variables and methods, which are attached to an individual instance of the 
+class, Java classes can have "class variables" (also called "static variables") and "class methods"
+(also called "static methods"), which are shared by every instance of the class.
