@@ -508,4 +508,17 @@ directory learningjava/src/test/java/com/bitsforabetterworld/learningjava) at th
 
 In addition to member variables and methods, which are attached to an individual instance of the 
 class, Java classes can have "class variables" (also called "static variables") and "class methods"
-(also called "static methods"), which are shared by every instance of the class.
+(also called "static methods"), which are shared by every instance of the class. In the same file,
+there is another class called StaticClickCounter, which is the same as ClickCounter, except
+that its "count" variable has the word "static" in front of it. This makes count a class variable,
+so all instances of StaticClickCounter share the same count. See how this makes counting
+different by looking at TestStaticClickCounterOnlyHasOneCount. This test does the same steps as
+TestEachClickCounterCountsIndependently, but the result is different: both ca and cb report
+10 clicks, instead of 3 for ca and 7 for cb.
+
+Now, for an exercise:
+
+In the file CalculatorTest.java, there is a class Calculator, which has methods add, subtract,
+multiply, and getValue. Make this class implement these methods so the tests in CalculatorTest.java
+all pass.
+

@@ -16,6 +16,19 @@ class ClickCounter {
 	}
 }
 
+class StaticClickCounter {
+	private static int count = 0;
+
+	public void click() {
+		count++; // add 1 to count
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+}
+
 /**
  * Unit test for simple App.
  */
@@ -37,7 +50,7 @@ public class ClickCounterTest
     }
 
     @Test
-    public void TestEachCountsIndependently() {
+    public void TestEachClickCounterCountsIndependently() {
         // Make 2 ClickCounters, ca and cb.
         // Click ca 3 times and cb 7 times, and expect
         // the counts to be correct.
@@ -53,5 +66,22 @@ public class ClickCounterTest
 
         assertEquals(3, ca.getCount());
         assertEquals(7, cb.getCount());
+    }
+
+    @Test
+    public void TestStaticClickCounterOnlyHasOneCount() {
+        StaticClickCounter ca = new StaticClickCounter();
+        StaticClickCounter cb = new StaticClickCounter();
+
+        for (int i = 0; i < 3; i++) {
+            ca.click();
+        }
+        for (int i = 0; i < 7; i++) {
+            cb.click();
+        }
+
+        assertEquals(10, ca.getCount());
+        assertEquals(10, cb.getCount());
+
     }
 }
