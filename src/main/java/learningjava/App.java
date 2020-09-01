@@ -1,4 +1,4 @@
-package com.bitsforabetterworld.learningjava;
+package learningjava;
 
 public class App {
     /*
