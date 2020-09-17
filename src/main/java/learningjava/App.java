@@ -1,6 +1,28 @@
 package learningjava;
 
 public class App {
+    // main() is the central function of a Java program. This function
+    // will run all of the code that you write to solve the problems
+    // in functions problem1, problem2, etc.
+    public static void main(String[] args) {
+        System.out.println("Problem 1");
+        problem1();
+        System.out.println("Problem 2");
+        problem2();
+        System.out.println("Problem 3");
+        problem3();
+        System.out.println("Problem 4");
+        problem4();
+        System.out.println("Problem 5");
+        problem5();
+        System.out.println("Problem 6");
+        problem6();
+        System.out.println("Problem 7");
+        problem7();
+        System.out.println("Problem 8");
+        problem8();
+    }
+
     /*
      * 1. Hello World Write a method that prints out "Hello Word", and make it run.
      */
@@ -44,6 +66,7 @@ public class App {
         System.out.println("2 to the 8th power is: " + power(2, 8));
         System.out.println("3 to the 4th power is: " + power(3, 4));
         System.out.println("5 to the 3rd power is: " + power(5, 3));
+        System.out.println("2 to the 16th power is: " + power(2, 16));
     }
 
     /*
@@ -161,22 +184,4 @@ public class App {
 
     }
 
-    public static void main(String[] args) {
-        System.out.println("Problem 1");
-        problem1();
-        System.out.println("Problem 2");
-        problem2();
-        System.out.println("Problem 3");
-        problem3();
-        System.out.println("Problem 4");
-        problem4();
-        System.out.println("Problem 5");
-        problem5();
-        System.out.println("Problem 6");
-        problem6();
-        System.out.println("Problem 7");
-        problem7();
-        System.out.println("Problem 8");
-        problem8();
-    }
 }
