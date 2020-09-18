@@ -20,7 +20,7 @@ If you need to install VS Code, get it here: https://code.visualstudio.com/
 ## Some vocabulary:
 
 - **comment**: In your program, you may want to put notes to yourself or to other developers. Java lets you
-	to this in two ways, either by making two / characters to indicate that everything after the `//`'s is
+	to this in two ways, either by making two `/` characters to indicate that everything after the `//`'s is
 	just a comment and should be ***ignored by the computer***, or by surrounding your comment with `/*` and `*/`.
 	
 	Examples:
@@ -58,7 +58,7 @@ If you need to install VS Code, get it here: https://code.visualstudio.com/
     System.out.println("This is a message");
 ```
 	
-- `int`: an integer. This is a number with no decimal or fractional part. In Java, an `int` can store
+- **int**: an integer. This is a number with no decimal or fractional part. In Java, an `int` can store
 	any number from -2,147,483,648 up to 2,147,483,647, inclusive.
 	
 - **variable**: a named place to store a value of a particular type. You can put any integer into
@@ -66,22 +66,22 @@ If you need to install VS Code, get it here: https://code.visualstudio.com/
 	of values. Examples:
 
 ```java
-	int x; // "Declaring" a variable. This tells Java to create a chunk of memory big enough to
-			// store an integer (32 bits, which is 4 bytes), and to give that chunk of memory
-            // the name "x".
+    int x; // "Declaring" a variable. This tells Java to create a chunk of memory big enough to
+           // store an integer (32 bits, which is 4 bytes), and to give that chunk of memory
+           // the name "x".
             
     int x = 123; // When you declare a variable, you can also give it an initial value. This is usually a good idea.
-			
+
     x = 42; // Now I've stored the integer 42 into the location x.
-    
-	x = x + 1; // Now x has the value 43, because this line reads the current value of x, adds 1 to it,
-                // and then stores the result back into x.
+
+    x = x + 1; // Now x has the value 43, because this line reads the current value of x, adds 1 to it,
+               // and then stores the result back into x.
                 
     x += 1;  // This is a shorter way of writing "x = x + 1"
     
     x++;  // This is an even shorter way, where we don't even say 1
     
-    String str = "Hello World";
+    String str = "Hello World";  // This initializes a new string, named `str`, to "Hello World"
 ```
 
 - **comparison**: There are lots of ways of comparing values in Java
@@ -95,6 +95,19 @@ If you need to install VS Code, get it here: https://code.visualstudio.com/
 	x <= y   // Is x less than or equal to y?
 ```
 
+    Comparing `String`s, or other Objects (we'll discuss these later), in Java has a few minor differences.
+```java
+	x == y          // Is x the same instance as y?
+	x != y          // Is x a different instance from y?
+	x.equals(y)     // Is the contents of x the same as y? 
+                        // (For Strings this is already defined, but for other Objects this may not be) 
+	x.compareTo(y)  // Returns an integer representing if x is greater than (a positive integer),
+                        //   less than (a negative integer), or equal to (0) y.
+                        // What this comparison means is determined by the Objects you are comparing.
+                        // For now, just know that for Strings this is a lexicographical (or alphabetical)
+			//   comparison
+```
+
 - **block**: a sequence of lines of code, usually inside a pair of braces like this:
 
 ```java
@@ -105,10 +118,23 @@ If you need to install VS Code, get it here: https://code.visualstudio.com/
 	}
 ```
 
-- **method** (or **function**): code that actually does something. (More on this later.)
+- **method** (or **function**): code that actually does something.
+    For example:
+```java
+	// Don't worry too much about these bits just yet, except that this method is called "methodName"
+	public void methodName(int input1, String input2) {
+		// Do Something
+	}
+```
+    A method contains code which is run when the method is "called", for instance:
+```java
+	methodName(42, "Don't Panic!");  // This calls the method "methodName" with two inputs
+```
+
+    (More details on this later.)
 
 - **class**: In Java, all code is organized into "classes", so initially you can think of a class as
-    a container to put "methods" and variables.
+    a container to put "methods" and variables. (More on this later, as well.)
 
 ---------------------
 
@@ -126,7 +152,7 @@ your own Java code to complete the tasks below.
 Once you have this file open, you will see that there is a method called `main`. And
 right above that method, if you have successfully installed Java, you will see
 the words `Run|Debug`. These words are links to run your program and print out
-the results in the `Terminal` view at the bottom of the window.
+the results in the `Terminal` (or `Console`) view at the bottom of the window.
 
 Try clicking `Run` and see what the program prints out before you have
 completed any of the tasks below.
@@ -137,7 +163,7 @@ completed any of the tasks below.
 
 1. Hello World
 
-    Change the method `problem1` to print out "Hello Word" when it is called by `main`.
+    Change the method `problem1` to print out "Hello World" when it is called by `main`.
 
     ***Hint:*** System.out.println is a method that prints out a string on a single line.
 
@@ -157,7 +183,7 @@ completed any of the tasks below.
     // The test in this while statement will be true as long as number is less than or equal to 100.
     while (number <= 100) {
 	    sum += number;
-	    number++;
+	    number++;  // number++ is shorthand for number += 1, which is shorthand for number = number + 1
     }
 ```
 
@@ -211,7 +237,7 @@ You can also create a newline with the `\n` character sequence like this: `Syste
 
 4. My first method
 
-Change the method `power` (which is right before the `problem4` method) to computes x to the y power.
+Change the method `power` (which is right before the `problem4` method) to compute x to the y power.
 
 When you're writing an essay, you don't put everything into one paragraph. Similarly,
 when you're programming, you don't put everything into the `main` method. Instead, you
@@ -240,12 +266,14 @@ static int square(int x) {
 ```
 
 In the function `square`, the parameter is an `int` named `x`, and the function `square` returns an `int`.
-(And the value that it returned is the value of `x` times `x`.)
+(And the value that it returns is the value of `x` times `x`.)
 
 Methods are "called" from other methods. The only exception is `main`, which is called by the operating system
 when you start your program.
 
-Call this method from `main` with several different combinations of x and y, and print out the result, like:
+Change the method `power` to calculate x to the power of y, where x and y are inputs to the method.
+
+This method will be called from `problem4` with several different combinations of x and y, which will print out the results, like:
 2 to the power of 3 is 8
 3 to the power of 4 is 81
 10 to the power of 5 is 100000
@@ -292,7 +320,7 @@ boolean isNegative = (n < 0); // built-in comparison operators produce booleans.
 
 boolean isStatusOk() {
 	// you can return booleans, just like ints
-	return !isSomethingWrong; // The ! is a boolean operator
+	return !isSomethingWrong; // The ! is a boolean operator (see below)
 }
 ```
 
@@ -305,7 +333,7 @@ Since boolean logic is so important in programming, here's a list of the boolean
 Some places where you might encounter booleans are in `while` and `for` loops (as we saw in exercise 2), and in
 `if` statements.
 
-An `if` statement looks like a whil loop:
+An `if` statement looks like a while loop:
 
 ```java
 if (n < 100) {
@@ -380,6 +408,15 @@ else {
 }
 ```
 
+Change the method `problem6` to solve the classic programming problem, fizzbuzz.
+
+Loop through all integers from 0 to 99, do the following:
+  - Print "fizz" if the number is divisible by 2
+  - Print "buzz" if the number is divisible by 3
+  - Print "fizzbuzz" if the number is divisible by 2 and 3
+  - Otherwise, print "nope"
+
+***Hint:*** The `modulus` operator (`%`) in Java returns the remainder of a division. (e.g. 15 % 4 results in 3)
 
 7. Arrays
 
@@ -436,7 +473,7 @@ int userSelectedColor = 2;
 printMessage(userSelectedColor, colors);
 ```
 
-***Task:*** Write a method that returns an array containing all of the integers from
+***Task:*** Change the method `numbersUpToN` so that it returns an array containing all of the integers from
 	0 to a value n that is specified by the caller. It should look something like
 	this:
 	
@@ -469,7 +506,7 @@ cross off numbers again. Continue this by moving your finger to the next un-cros
 count forward the number of spaces given by the number under your finger, cross off, count forward
 the same number, etc., until you reach the end of the list. And then move your finger forward and repeat.
 
-Implement the Sieve of Eratosthenes as a method like this:
+Implement the Sieve of Eratosthenes in the `findPrimesLessThanN` method like this:
 
 ```java
 static int[] findPrimesLessThanN(int n)
@@ -549,7 +586,7 @@ class ClickCounter {
 
 Now we can create any number of instances of ClickCounter, and each one will keep track of how many
 times its click has been called. Look in the file ClickCounterTest.java (located in the
-directory learningjava/src/test/java/com/bitsforabetterworld/learningjava) at the test method 
+directory learningjava/src/test/java/learningjava) at the test method 
 "TestEachClickCounterCountsIndependently" to see a demonstration of this.
 
 In addition to member variables and methods, which are attached to an individual instance of the 
