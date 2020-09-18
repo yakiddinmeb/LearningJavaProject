@@ -260,31 +260,33 @@ Call this method from `main` with several different combinations of x and y, and
  
 5. Power table
 
-Write a "powerTable" method to print out a table of x to the power of y. In this table, "x" counts the numbers
-as you go from left to right in the table, and "y" counts the numbers as you go from top to bottom
-in the table. Each number in the table is calculated using the "power" method that you wrote for problem 4.
+Change the method `problem5` to print out a table of x to the power of y. In this table, `x` counts the numbers
+as you go from left to right in the table, and `y` counts the numbers as you go from top to bottom
+in the table. Each number in the table is calculated using the `power` method that you wrote for problem 4.
 
 The result should look like this:
 
+```
 1 1 1 1 1 1 1 1 1 1
 2 4 8 16 32 64 128 256 512 1024
 3 9 27 81 273 729 2187 6561 19683 59049
 4 16 64 256 1024 4096 16384 65536 262144 1048576
 5 25 125 625 3125 15625 78125 390625 1953125 9765625
-
+```
 
 -------------------
 
 6. Booleans and if statements
 
-int is a data type that can hold any integer (within limits). But in programming, it's very, very common
+`int` is a data type that can hold any integer (within limits). But in programming, it's very, very common
 to want to talk about values that can only be either true or false. Is the light on? Is the robot moving?
-Is the number zero? Is the password correct? For cases like that, there is a special data type called "boolean".
+Is the number zero? Is the password correct? For cases like that, there is a special data type called `boolean`.
 (The name is from George Boole, who invented a type of logic about combining variables that can be
 true or false. We call this kind of logic "Boolean logic" or "Boolean algebra".) 
 
 Use it like this:
 
+```java
 boolean isSomethingWrong = false; // you can set booleans directly to true or false
 boolean isNegative = (n < 0); // built-in comparison operators produce booleans.
 
@@ -292,36 +294,42 @@ boolean isStatusOk() {
 	// you can return booleans, just like ints
 	return !isSomethingWrong; // The ! is a boolean operator
 }
+```
 
 Since boolean logic is so important in programming, here's a list of the boolean operators you're likely to encounter:
 
-! is "not". It converts true to false, and false to true.
-&& is "and". a && b is true if both a and b are true, and false otherwise.
-|| is "or". a || b is true if a is true, or if b is true, or both are true.
+`!` is "not". It converts `true` to `false`, and `false` to `true`.
+`&&` is "and". `a && b` is `true` if both `a` and `b` are `true`, and `false` otherwise.
+`||` is "or". `a || b` is `true` if `a` is `true`, or if `b` is `true`, or both are `true`.
 
-Some places where you might encounter booleans are in "while" and "for" loops (as we saw in exercise 2), and in
-"if" statements.
+Some places where you might encounter booleans are in `while` and `for` loops (as we saw in exercise 2), and in
+`if` statements.
 
-And if statement looks like a while loop:
+An `if` statement looks like a whil loop:
 
+```java
 if (n < 100) {
 	// do something
 }
+```
 
-The difference is that while loops will repeat over and over, until the boolean condition in parentheses after the word "while"
-evaluates to false. If statements are only evaluated once. If the condition is true, then you execute the block following. If not, you don't.
+The difference is that `while` loops will repeat over and over, until the boolean condition in parentheses after the word "while"
+evaluates to false. `if` statements are only evaluated once. If the condition is true, then you execute the block following. If not, you don't.
 
-It's also possible to extend an if statement, to tell it what to do in case the condition is false:
+It's also possible to extend an `if` statement, to tell it what to do in case the condition is false:
 
+```java
 if (n < 100) {
 	// do something
 }
 else {
 	// n was not less than 100. Do something else.
 }
+```
 
-And you can go even further, using "else if" after the intial "if". 
+And you can go even further, using `else if` after the intial `if`: 
 
+```java
 if (n < 100) {
 	// something
 }
@@ -334,23 +342,24 @@ else if (n == 147) {
 else {
 	// if nothing else in the sequence was true
 }
-
+```
 
 The way this works is:
-- First the condition in the "if" clause is checked. If that's true, then do whatever is inside
-	the block connected to the "if". And then skip all of the following "else" and "else if" clauses.
+- First the condition in the `if` clause is checked. If that's true, then do whatever is inside
+	the block connected to the `if`. And then skip all of the following `else` and `else if` clauses.
 
-- Next look at the first "else if" clause. If the condition in it is true, then do
-	what is in the block, and skip all the following "else" and "else if" clauses
+- Next look at the first `else if` clause. If the condition in it is true, then do
+	what is in the block, and skip all the following `else` and `else if` clauses
 	
-- Then look at the next "else if", using the same rule.
+- Then look at the next `else if`, using the same rule. (And so on.)
 
-- Finally, if none of the "if" and "else if" conditions were true, do whatever the "else
-	clause says. (If there is an "else".)
+- Finally, if none of the `if` and `else if` conditions were true, do whatever the `else`
+	clause says. (If there is an `else`.)
 	
 
 Question: What does this program print out?
 
+```java
 int number = 42;
 
 if (number > 0) {
@@ -369,7 +378,7 @@ else if (number > 10) {
 else {
 	System.out.println("E");
 }
-
+```
 
 
 7. Arrays
@@ -377,16 +386,20 @@ else {
 If you have a number of values to store, you might create a lot of variables. For example, if you want to record a series of
 distance measurements, you might have a lot of variables like:
 
+```java
 int distance0;
 int distance1;
 int distance2;
 int distance3;
-...
+// ...
+```
 
 But you can do this more easily, and more flexibly, by using an "array". An array lets you
 say that you want a certain number of places to store values of a given type.
 
+```java
 int[] distances = new int[5]; // 5 is the "size" of the array.
+```
 
 Then you can use particular locations in the array ("elements" of the array) as variables of the
 element type. You specify an element of the array by giving its "index", which is the number that
@@ -394,19 +407,24 @@ tells you which position in the array you want.
 
 NOTE: The first element in the array is at index 0, and the last element is at index (size - 1) !!!!
 
+```java
 distances[0] = 42;
+```
 
 Why is this useful? Because sometimes you don't know how many elements you want to have. Also,
 it makes programming easier if you can use a number to indicate which variable you're talking
 about. Also, an array is itself a variable, of type "array of whatever", which means that you
 can have variables and parameters that are arrays. So you might create a method like this:
 
+```java
 static void printMessage(int number, String[] colors) {
 	System.out.println("Color #" + number + " is " + colors[number]);
 }
+```
 
 And then you might use that method like this:
 
+```java
 String[] colors = new String[4];
 colors[0] = "red";
 colors[1] = "blue";
@@ -416,12 +434,13 @@ colors[3] = "magenta";
 int userSelectedColor = 2;
 
 printMessage(userSelectedColor, colors);
+```
 
-
-Task: Write a method that returns an array containing all of the integers from
+***Task:*** Write a method that returns an array containing all of the integers from
 	0 to a value n that is specified by the caller. It should look something like
 	this:
 	
+```java
 static int[] numbersUpToN(int n) {
 	int[] integers = new int[n+1]; // Can you see why we need n+1 elements?
 	
@@ -430,6 +449,7 @@ static int[] numbersUpToN(int n) {
 		
 	return integers;
 }
+```
 
 --------------------------------------------------------------------------
 
@@ -451,6 +471,7 @@ the same number, etc., until you reach the end of the list. And then move your f
 
 Implement the Sieve of Eratosthenes as a method like this:
 
+```java
 static int[] findPrimesLessThanN(int n)
 {
 	// We're using possiblePrimes to keep track of which numbers we've
@@ -489,14 +510,12 @@ static int[] findPrimesLessThanN(int n)
 	// Tenth: Return primes.
 	// 
 }
+```
 
 9. Classes
 
 All code in Java is in the form of classes. All the examples you've worked on so far in the App.java file
-have been method in the class "App". Now we're going to create some new classes and use them to
-make the test cases in ClassesTest.java pass.
-
-For this set of exercises, we will create our classes in the file ClassesTest.java.
+have been method in the class `App`. Now we're going to work with some new classes and use them to make some unit tests pass.
 
 A class is two things. First, it is a recipe for creating instances (which are also called "objects").
 When you want to make an instance of a class, you use the "new" operator to "instantiate" the class.
@@ -514,6 +533,7 @@ example class called "ClickCounter". Instances of the class ClickCounter will ha
 method called "getCount". getCount will return the number of times click has been called on that particular
 instance of ClickCounter. Here is the code:
 
+```java
 class ClickCounter {
 	private int count = 0;
 
@@ -525,7 +545,7 @@ class ClickCounter {
 		return count;
 	}
 }
-
+```
 
 Now we can create any number of instances of ClickCounter, and each one will keep track of how many
 times its click has been called. Look in the file ClickCounterTest.java (located in the

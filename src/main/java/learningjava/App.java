@@ -70,7 +70,7 @@ public class App {
     }
 
     /*
-     * 5. Power table Write a "powerTable" method to print out a table of x to the
+     * 5. Power table method to print out a table of x to the
      * power of y. In this table, "x" counts the numbers as you go from left to
      * right in the table, and "y" counts the numbers as you go from top to bottom
      * in the table. Each number in the table is calculated using the "power" method
