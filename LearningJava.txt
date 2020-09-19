@@ -74,10 +74,15 @@ Some vocabulary:
 			// the name "x"
 			
 	x = 42; // Now I've stored the integer 42 into the location x.
+
 	x = x + 1; // Now x has the value 43, because this line reads the current value of x, adds 1 to it,
-				// and then stores the result back into x.
+		   // and then stores the result back into x.
+
 	x += 1;  // This is a shorter way of writing "x = x + 1"
+
 	x++;  // This is an even shorter way, where we don't even say 1
+
+	String str = "Hello World";  // This initializes a new string, named str, to "Hello World"
 
 - comparison: There are lots of ways of comparing values in Java
 	x == y   Is x equal to y?
@@ -87,6 +92,16 @@ Some vocabulary:
 	x >= y   Is x greater than or equal to y?
 	x <= y   Is x less than or equal to y?
 	
+    Comparing Strings, or other Objects (we'll discuss these later), in Java has a few minor differences.
+        x == y          Is x the same instance as y?
+        x != y          Is x a different instance from y?
+        x.equals(y)     Is the contents of x the same as y?
+                        (For Strings this is already defined, but for other Objects this may not be)
+        x.compareTo(y)  Returns an integer representing if x is greater than (a positive integer),
+                          less than (a negative integer), or equal to (0) y.
+                        What this comparison means is determined by the Objects you are comparing.
+                        For now, just know that for Strings this is a lexicographical (or alphabetical)
+                          comparison.
 
 - block: a sequence of lines of code, usually inside a pair of braces like this:
 
@@ -96,33 +111,59 @@ Some vocabulary:
 		// etc.
 	}
 
-- method (or function): code that actually does something. (More on this later.)
+- method (or function): code that actually does something.
+	For example:
+		// Don't worry too much about these bits just yet, except that this method is called "methodName"
+		public void methodName(int input1, String input2) {
+			// Do Something
+		}
 
-In Java, all code is organized into "classes", so initially you can think of a class as
-a container to put "methods" and variables.
+	A method contains code which is run when the method is "called", for instance:
+		methodName(42, "Don't Panic!");  // This calls the method "methodName" with two inputs
+
+	(More details on this later.) 
+
+- class: In Java, all code is organized into "classes", so initially you can think of a class as
+           a container to put "methods" and variables. (More on this later, as well.)
 
 ---------------------
 
-Now on to the problems. To start, for each of these create a new file, with a name like "Problem1.java"
-In this file, copy this sample class definition
+Now on to the problems.
 
-public class Problem1 {
-	public static void main(String[] args) {
-	}
-}
+Open this project in Visual Studio Code.
+There will be an expandable file list displayed, and you should open the folders
+ to find the file src\main\java\learningjava\App.java.
+This file is where you will work on writing your own Java code to complete the tasks below.
+
+Once you have this file open, you will see that there is a method called main.
+And right above that method, if you have successfully installed Java, you will see the words Run|Debug.
+These words are links to run your program and print out the results in
+  the Terminal (or Console) view at the bottom of the window.
+
+Try clicking Run and see what the program prints out before you have completed any of the tasks below.
 
 -------------------
 
+Programming Tasks
+u will need to download a copy of this project to your machine. I recommend using the Code button at the top of the page, and selecting Open with GitHub Desktop to get a live version of this code on your machine.
+
+Once you have this downloaded, open the downloaded folder in Visual Studio Code. There will be an expandable file list displayed, and you should open the folders to find the file src\main\java\learningjava\App.java. This file is where you will work on writing your own Java code to complete the tasks below.
+
+Once you have this file open, you will see that there is a method called main. And right above that method, if you have successfully installed Java, you will see the words Run|Debug. These words are links to run your program and print out the results in the Terminal view at the bottom of the window.
+
+Try clicking Run and see what the program prints out before you have completed any of the tasks below.
+ 
+-------------------
 
 1. Hello World
 
-Write a program that prints out "Hello Word", and make it run.
+Change the method "problem1" to print out "Hello World".
 Hint: System.out.println is a method that prints out a string on a single line.
 
 -------------------
 2. Counting
 
-Write a program that prints the numbers from 1 to 10, each on a separate line.
+Change the method "problem2" to print the numbers from 1 to 10, each on a separate line.
 
 Hint: Use a "while" loop. This is a way to repeat a block of code for as long as the
 "test" (which is the expression in parentheses after the "while") is true. For example, the
@@ -156,7 +197,7 @@ Hint: In Java, an easy way to turn any variable into a string that you can print
 
 3. More complex counting
 
-Write a program that prints the numbers from 1 to 100, with ten numbers on each line, like this:
+Change the method "problem3" to print the numbers from 1 to 100, with ten numbers on each line, like this:
 1 2 3 4 5 6 7 8 9 10
 11 12 13 14 15 16 17 18 19 20
 21 22 23 24 25 26 27 28 29 30
@@ -219,7 +260,9 @@ static int power(int x, int y) {
 Methods are "called" from other methods. The only exception is "main", which is called by the operating system
 when you start your program.
 
-Call this method from "main" with several different combinations of x and y, and print out the result, like:
+Change the method "power" to calculate x to the power of y, where x and y are inputs to the method.
+
+This method will be called from "problem4" with several different combinations of x and y, which will print out the results, like:
 2 to the power of 3 is 8
 3 to the power of 4 is 81
 10 to the power of 5 is 100000
@@ -234,7 +277,7 @@ Hint: In Java, an easy way to build strings is by using + to append them, like t
  
 5. Power table
 
-Write a "powerTable" method to print out a table of x to the power of y. In this table, "x" counts the numbers
+Change the method "problem5" to print out a table of x to the power of y. In this table, "x" counts the numbers
 as you go from left to right in the table, and "y" counts the numbers as you go from top to bottom
 in the table. Each number in the table is calculated using the "power" method that you wrote for problem 4.
 
@@ -264,7 +307,7 @@ boolean isNegative = (n < 0); // built-in comparison operators produce booleans.
 
 boolean isStatusOk() {
 	// you can return booleans, just like ints
-	return !isSomethingWrong; // The ! is a boolean operator
+	return !isSomethingWrong; // The ! is a boolean operator (see below)
 }
 
 Since boolean logic is so important in programming, here's a list of the boolean operators you're likely to encounter:
@@ -345,6 +388,15 @@ else {
 }
 
 
+Change the method "problem6" to solve the classic programming problem, fizzbuzz.
+
+Loop through all integers from 0 to 99, do the following:
+  - Print "fizz" if the number is divisible by 2
+  - Print "buzz" if the number is divisible by 3
+  - Print "fizzbuzz" if the number is divisible by both 2 and 3
+  - Otherwise, print "nopw"
+
+Hint: The "modulus" operator ("%") in Java returns the remainder of a division. (e.g. 15 % 4 results in 3)
 
 7. Arrays
 
@@ -392,7 +444,7 @@ int userSelectedColor = 2;
 printMessage(userSelectedColor, colors);
 
 
-Task: Write a method that returns an array containing all of the integers from
+Task: Change the method "numbersUpToN" so that it returns an array containing all of the integers from
 	0 to a value n that is specified by the caller. It should look something like
 	this:
 	
@@ -423,7 +475,7 @@ cross off numbers again. Continue this by moving your finger to the next un-cros
 count forward the number of spaces given by the number under your finger, cross off, count forward
 the same number, etc., until you reach the end of the list. And then move your finger forward and repeat.
 
-Implement the Sieve of Eratosthenes as a method like this:
+Implement the Sieve of Eratosthenes in the "findPrimesLessThanN" method like this:
 
 static int[] findPrimesLessThanN(int n)
 {
@@ -503,7 +555,7 @@ class ClickCounter {
 
 Now we can create any number of instances of ClickCounter, and each one will keep track of how many
 times its click has been called. Look in the file ClickCounterTest.java (located in the
-directory learningjava/src/test/java/com/bitsforabetterworld/learningjava) at the test method 
+directory learningjava/src/test/java/learningjava) at the test method 
 "TestEachClickCounterCountsIndependently" to see a demonstration of this.
 
 In addition to member variables and methods, which are attached to an individual instance of the 

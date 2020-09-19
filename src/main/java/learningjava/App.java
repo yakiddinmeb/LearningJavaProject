@@ -24,7 +24,7 @@ public class App {
     }
 
     /*
-     * 1. Hello World Write a method that prints out "Hello Word", and make it run.
+     * 1. Hello World Write a method that prints out "Hello World", and make it run.
      */
     static void problem1() {
         // Fill in your answer here.
@@ -43,8 +43,12 @@ public class App {
      * 3. More complex counting
      * 
      * Write a program that prints the numbers from 1 to 100, with ten numbers on
-     * each line, like this: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21
-     * 22 23 24 25 26 27 28 29 30 ...
+     * each line, like this:
+     * 1 2 3 4 5 6 7 8 9 10
+     * 11 12 13 14 15 16 17 18 19 20
+     * 21 22 23 24 25 26 27 28 29 30
+     * ...
+     * 91 92 93 94 95 96 97 98 99 100
      */
     static void problem3() {
         // Fill in your answer here.
@@ -86,6 +90,8 @@ public class App {
      * ...
      */
     static void problem5() {
+	int x = 10;
+	int y = 5;
         // Fill in your answer here.
 
     }
@@ -138,20 +144,20 @@ public class App {
     */
     static int[] findPrimesLessThanN(int n)
     {
-	    // We're using possiblePrimes to keep track of which numbers we've
-	    // eliminates as possibly being prime. This is like crossing them off a
-	    // sheet of paper. Here, we're making use of the array index to indicate what
-	    // the number is, so the only information about the number we have to store
-	    // is whether or not we've crossed it off our list.
+	// We're using possiblePrimes to keep track of which numbers we've
+	// eliminated as possibly being prime. This is like crossing them off a
+	// sheet of paper. Here, we're making use of the array index to indicate what
+	// the number is, so the only information about the number we have to store
+	// is whether or not we've crossed it off our list.
 
     	boolean[] possiblePrimes = new boolean[n];
-	    // First: set all the elements of possiblePrimes to true.
+	// First: set all the elements of possiblePrimes to true.
 
     	// Second: set possiblePrimes[0] and possiblePrimes[1] to false, since we know
     	// by definition that 0 and 1 are not prime.
 	
-	    // Third: Make a for loop. Have a variable currentPossible that starts at 2, and have the
-	    // loop continue for as long as currentPossible < n, and increment by 1.
+	// Third: Make a for loop. Have a variable currentPossible that starts at 2, and have the
+	// loop continue for as long as currentPossible < n, and increment by 1.
 	
     	// Fourth: INSIDE the for loop mentioned above, make another for loop. This one should have
     	// a variable currentMultiple that starts at (currentPossible + currentPossible), and continues
@@ -166,7 +172,7 @@ public class App {
     	// Seventh: Create an array of ints big enough to fit all the primes
         int[] primes = new int[0]; // Change 0 to the correct size
 
-	    // Eighth: Create a variable currentPrimeIndex = 0
+	// Eighth: Create a variable currentPrimeIndex = 0
 
     	// Ninth: Using a for loop with index i, go through the array of possiblePrimes. 
     	// Every time you find a true value, set primes[currentPrimeIndex] = i.
