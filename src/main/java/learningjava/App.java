@@ -1,7 +1,7 @@
 package learningjava;
 
 public class App {
-    // main() is the central function of a Java program. This function
+    // main() is the central function of a currentMultipleava program. This function
     // will run all of the code that you write to solve the problems
     // in functions problem1, problem2, etc.
     public static void main(String[] args) {
@@ -27,7 +27,8 @@ public class App {
      * 1. Hello World Write a method that prints out "Hello World", and make it run.
      */
     static void problem1() {
-        // Fill in your answer here.
+        System.out.println("Hello World");
+        
     }
 
     /*
@@ -35,6 +36,11 @@ public class App {
      * separate line.
      */
     static void problem2() {
+        int x = 1;
+        while (x <= 10){
+            System.out.println(x++);
+        }
+        
         // Fill in your answer here.
 
     }
@@ -51,17 +57,33 @@ public class App {
      * 91 92 93 94 95 96 97 98 99 100
      */
     static void problem3() {
-        // Fill in your answer here.
+        int x = 1;
+        while (x<=100){
+            if (x % 10 == 0) {
+                System.out.print(x + "\n");
+
+            } else {
+                System.out.print(x + " ");
+            }
+            x++;
+        }
 
     }
+        
+        
+            
+            
+         
+
+
 
     /*
      * 4. Write a "power" method. This method computes x to the y power.
      */
-    static int power(int x, int y) {
-        int result = 1; // Think about why you want to have 1 and not 0 to start
+    static double power(int x, int y) {
+        double result = Math.pow(x, y); // Think about why you want to have 1 and not 0 to start
 
-        // Fill in your answer here.
+        
 
         return result;
     }
@@ -91,10 +113,25 @@ public class App {
      */
     static void problem5() {
 	int x = 10;
-	int y = 5;
-        // Fill in your answer here.
+    int y = 5;
+        
+        
+    int i = 1, u = 1;
+    while (i <= y) {
+        String values = "";
+        while (u <= x)
+            values += power(i, u++) + " ";
+        System.out.println(values);
+        i++;
+        u = 0;
+        }
 
+
+        
     }
+
+
+    
 
     /* 6. Booleans and if statements
      *    In the for-loop, print "fizz" if a number is divisible by 2, "buzz" if it is divisible
@@ -113,7 +150,17 @@ public class App {
     static void problem6() {
 
         for (int i = 0; i<100; i++) {
-            // Fill in your answer here.
+            if (i%2 == 0 && i%3 == 0) {
+                System.out.println("fizzbuzz");
+            } else if (i%2 == 0) {
+                System.out.println("fizz");
+                
+            } else if (i%3 == 0) {
+                System.out.println("buzz");
+            } else {
+                System.out.println("nope");
+            }
+
             // Use if, else if, and else statements to decide what to print.
         }
     }
@@ -125,8 +172,8 @@ public class App {
     static int[] numbersUpToN(int n) {
         int[] integers = new int[n+1]; // Can you see why we need n+1 elements?
         
-        // Fill in the "integers" array with the correct values
-        // Hint: Use a for loop.
+        for (int i = 0; i < integers.length; i++)
+         integers[i] = i;
             
         return integers;
     }
@@ -151,32 +198,54 @@ public class App {
 	// is whether or not we've crossed it off our list.
 
     	boolean[] possiblePrimes = new boolean[n];
-	// First: set all the elements of possiblePrimes to true.
+    // First: set all the elements of possiblePrimes to true.
+        for (int x = 0; x < possiblePrimes.length; x++)
+            possiblePrimes[x] = true;
 
     	// Second: set possiblePrimes[0] and possiblePrimes[1] to false, since we know
-    	// by definition that 0 and 1 are not prime.
+        // by definition that 0 and 1 are not prime.
+        possiblePrimes[0] = false;
+        possiblePrimes[1] = false;
+        
 	
 	// Third: Make a for loop. Have a variable currentPossible that starts at 2, and have the
-	// loop continue for as long as currentPossible < n, and increment by 1.
+    // loop continue for as long as currentPossible < n, and increment by 1.
+    
 	
     	// Fourth: INSIDE the for loop mentioned above, make another for loop. This one should have
     	// a variable currentMultiple that starts at (currentPossible + currentPossible), and continues
-    	// for as long as currentMultiple < n, and increment by currentPossible.
+        // for as long as currentMultiple < n, and increment by currentPossible.
+        // Fifth, INSIDE this inner for loop, set possiblePrimes[currentMultiple] to false
+        for (int currentPossible = 2; currentPossible < n; currentPossible++) {
+            for (int currentMultiple = currentPossible * 2; currentMultiple < n; currentMultiple += currentPossible)
+                possiblePrimes[currentMultiple] = false;
+        }
 	
-    	// Fifth, INSIDE this inner for loop, set possiblePrimes[currentMultiple] to false
 	
 	
     	// Sixth: OK, this is outside of both for loops. Now you need to count how many elements in possiblePrimes
-    	// are true. This is going to be the number of elements to return as primes.
+        // are true. This is going to be the number of elements to return as primes.
+        int primecount = 0;
+        for (boolean possible : possiblePrimes) {
+            if (possible)
+            primecount++;
+        }
         
     	// Seventh: Create an array of ints big enough to fit all the primes
-        int[] primes = new int[0]; // Change 0 to the correct size
+        int[] primes = new int[primecount]; // Change 0 to the correct size
 
-	// Eighth: Create a variable currentPrimeIndex = 0
+    // Eighth: Create a variable currentPrimeIndex = 0
+        int currentPrimeIndex = 0;
 
     	// Ninth: Using a for loop with index i, go through the array of possiblePrimes. 
     	// Every time you find a true value, set primes[currentPrimeIndex] = i.
-    	// Then increment currentPrimeIndex
+        // Then increment currentPrimeIndex
+        for (int i = 0; i < possiblePrimes.length; i++) {
+            if (possiblePrimes[i]) {
+                primes[currentPrimeIndex] = i;
+                currentPrimeIndex++;
+            }
+        }
 	
         // Tenth: Return primes.
         return primes;

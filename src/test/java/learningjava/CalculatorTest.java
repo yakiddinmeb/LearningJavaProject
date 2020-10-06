@@ -4,23 +4,27 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-// TODO for students: Implement this class so it passes the tests below.
+//TODO for students: Implement this class so it passes the tests below.
 class Calculator {
 
+    int x = 0;
     public void add(int n) {
+        x += n;
 
     }
 
     public void subtract(int n) {
+        x -= n;
 
     }
 
     public void multiply(int n) {
+        x *= n;
 
     }
 
     public int getValue() {
-        return 0;
+        return x;
     }
 }
 
